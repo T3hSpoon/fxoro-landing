@@ -1,0 +1,191 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Separator from "../components/ui/Separator.astro";
+import TitleInformation from "../components/TitleInformation.astro";
+import Features from "../components/FeaturesCard.astro";
+import FeaturesAlt from "../components/FeaturesAlt.astro";
+import CallToAction from "../components/CallToAction.astro";
+import CommitmentCard from "../components/CommitmentCard.astro";
+
+const titleInfo = {
+  title: "MARKET OBSERVATIONS FOR 2024",
+  information: `Saxo Bank has just released an article called Outrageous Predictions*,
+    which can serve as a compass for the trends and shifts that could influence
+    the financial world in 2024. Our Team provides a breakdown of this
+    information:`,
+};
+
+const features = [
+  {
+    id: "1.",
+    title: "RENEWABLE ENERGY FOCUS",
+    description:
+      "Noting a trend towards renewable energy in response to fluctuating oil prices.",
+    image: "/src/assets/windmill.png",
+    alt: "",
+  },
+  {
+    id: "2.",
+    title: "HEALTHCARE SECTOR DEVELOPMENT",
+    description:
+      "Observing changes in healthcare investment due to new medical treatments.",
+    image: "/src/assets/doctor.png",
+    alt: "",
+  },
+  {
+    id: "3.",
+    title: "EVOLVING BOND MARKET LANDSCAPE",
+    description: "Highlighting potential shifts in government bond strategies",
+    image: "/src/assets/money.png",
+    alt: "",
+  },
+  {
+    id: "4.",
+    title: "INCREASED INTEREST IN CYBERSECURITY",
+    description:
+      "Recognizing the growing importance of digital security investments. ",
+    image: "/src/assets/cloud.png",
+    alt: "",
+  },
+];
+
+const featuresTwo = [
+  {
+    id: "5.",
+    title: "GLOBAL TRADE DYNAMICS",
+    description:
+      "Watching the impact of international trade renegotiations on markets.",
+    image: "/src/assets/trade.png",
+    alt: "",
+  },
+  {
+    id: "6.",
+    title: "POLITICAL INFLUENCES ON MARKETS",
+    description: "Monitoring how political events may affect market trends.",
+    image: "/src/assets/vote.png",
+    alt: "",
+  },
+  {
+    id: "7.",
+    title: "ECONOMIC DEVELOPMENTS IN ASIA",
+    description:
+      "Keeping an eye on Japan’s economic policies and their market implications.",
+    image: "/src/assets/growth.png",
+    alt: "",
+  },
+  {
+    id: "8.",
+    title: "SHIFTS IN LUXURY GOODS MARKET",
+    description: "Observing the potential impacts of new lax laws in Europe.",
+    image: "/src/assets/luxury.png",
+    alt: "",
+  },
+];
+
+const commitments = [
+  {
+    title: "Comprehensive Marketing Analysis:",
+    description: "Providing thorough continuous market news.",
+  },
+  {
+    title: "Up-to-Date Market Information: ",
+    description: "Ensuring you have the latest data.",
+  },
+  {
+    title: "Strong Emphasis on Risk Awareness: ",
+    description: "Ensuring you have the latest data.",
+  },
+];
+---
+
+<Layout title="FXORO Landing - Ovidiu-Constantin Toader.">
+  <main>
+    <section id="hero" class="md:bg-hero-image bg-right bg-no-repeat">
+      <Hero />
+    </section>
+
+    <img
+      src="/src/assets/coinstack.png"
+      alt=""
+      class="w-full block md:hidden"
+    />
+
+    <Separator />
+
+    <TitleInformation
+      title={titleInfo.title}
+      information={titleInfo.information}
+    />
+
+    <div
+      class="md:flex bg-indigo-900 mx-auto items-center justify-center py-10"
+    >
+      <div class="md:flex md:mx-80 md:space-x-10">
+        {
+          features.map((feature, index) => {
+            return (
+              <Features
+                key={index}
+                id={feature.id}
+                title={feature.title}
+                description={feature.description}
+                image={feature.image}
+                alt={feature.alt}
+              />
+            );
+          })
+        }
+      </div>
+    </div>
+
+    <div class="flex bg-white mx-auto items-center justify-center py-10">
+      <div class="md:flex md:mx-80 md:space-x-10">
+        {
+          featuresTwo.map((feature, index) => {
+            return (
+              <FeaturesAlt
+                key={index}
+                id={feature.id}
+                title={feature.title}
+                description={feature.description}
+                image={feature.image}
+                alt={feature.alt}
+              />
+            );
+          })
+        }
+      </div>
+    </div>
+    <CallToAction />
+
+    <div class="py-6">
+      <h2 class="pb-2 pt-4 md:pt-0 md:mx-80 text-center md:text-start">
+        FX<span class="text-yellow-500">ORO</span>'S COMMITMENT
+      </h2>
+      <div class="md:flex md:mx-80 md:space-x-10">
+        {
+          commitments.map((commitment, index) => {
+            return (
+              <CommitmentCard
+                key={index}
+                title={commitment.title}
+                description={commitment.description}
+              />
+            );
+          })
+        }
+      </div>
+    </div>
+  </main>
+
+  <style>
+    main {
+      @apply p-0 w-full mx-auto;
+      width: 100%;
+      font-size: 16px;
+      line-height: 1.6;
+      background-color: white;
+    }
+  </style>
+</Layout>

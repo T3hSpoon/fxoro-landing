@@ -1,0 +1,14 @@
+---
+const { title, description } = Astro.props;
+---
+
+<div>
+  <div
+    class="md:flex flex-col mx-auto items-center justify-center text-center px-16 md:px-6 py-6 md:w-8/12"
+  >
+    <div class="spacey-2 md:space-y-6">
+      <h4>{title}</h4>
+      <p>{description}</p>
+    </div>
+  </div>
+</div>
